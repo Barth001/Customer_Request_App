@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AdonisJS - A fully featured web framework for Node.js</title>
+  <title>Customer Request</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
   <style>
   body {
@@ -60,11 +60,10 @@
       background-color: #45a049;
     }
   </style>
-<title>Customer Request</title>
 </head>
 <body>
   <h1>Submit Request</h1>
-  <form action="/customer-request" method="post" enctype="multipart/form-data">
+  <form action="/request" method="post" enctype="multipart/form-data">
     <label for="first_name">First Name:</label>
     <input type="text" name="first_name" required><br>
 
@@ -72,13 +71,13 @@
     <input type="text" name="last_name" required><br>
 
     <label for="email">Email:</label>
-    <input type="email" name="email_address" required><br>
+    <input type="email" name="email" required><br>
 
-    <label for="support_message_title">Request Title:</label>
-    <input type="text" name="support_message_title" required><br>
+    <label for="request_title">Request Title:</label>
+    <input type="text" name="request_title" required><br>
 
-    <label for="support_message_text">Request Message:</label>
-    <textarea name="support_message_text" required></textarea><br>
+    <label for="request_message">Request Message:</label>
+    <textarea name="request_message " required></textarea><br>
 
     <label for="file_data">File:</label>
     <input type="file" name="file_data"><br>
