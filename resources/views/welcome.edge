@@ -6,105 +6,84 @@
   <title>AdonisJS - A fully featured web framework for Node.js</title>
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      background-color: #F7F8FA;
-      font-family: 'Poppins', sans-serif;
-      height: 100vh;
-      color: #46444c;
-      position: relative;
-    }
-
-    body:before {
-      content: '';
-      background: #5A45FF;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 6px;
-      position: absolute;
-    }
-
-    * {
+  body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
       margin: 0;
       padding: 0;
-    }
-
-    a {
-      color: #5A45FF;
-      text-decoration: none;
-    }
-
-    main {
-      max-width: 620px;
-      margin: auto;
-      height: 100vh;
-      padding: 0 30px;
-      align-items: center;
       display: flex;
+      flex-direction: column;
+      align-items: center;
       justify-content: center;
+      height: 100vh;
     }
 
-    .title {
-      font-size: 50px;
-      line-height: 50px;
-      margin-bottom: 10px;
-      color: #17161A;
-    }
-
-    .subtitle {
-      font-size: 26px;
-      margin-bottom: 40px;
-    }
-
-    p {
+    h1 {
+      text-align: center;
+      color: #333;
       margin-bottom: 20px;
     }
 
-    main ul {
-      list-style: none;
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      max-width: 100%;
     }
 
-    main li {
-      margin-bottom: 5px;
-      position: relative;
-      padding-left: 25px;
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
     }
 
-    main li:before {
-      content: '—';
-      position: absolute;
-      left: 0;
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 16px;
+      box-sizing: border-box;
     }
 
-    main code {
-      font-size: 16px;
-      background: #e6e2ff;
+    button {
+      background-color: #4caf50;
+      color: #fff;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
     }
   </style>
+<title>Customer Request</title>
 </head>
 <body>
+  <h1>Submit Request</h1>
+  <form action="/customer-request" method="post" enctype="multipart/form-data">
+    <label for="first_name">First Name:</label>
+    <input type="text" name="first_name" required><br>
 
-  <main>
-    <div>
-      <h1 class="title"> It Works! </h1>
-      <p class="subtitle">
-        Congratulations, you have just created your first AdonisJS app.
-      </p>
+    <label for="last_name">Last Name:</label>
+    <input type="text" name="last_name" required><br>
 
-      <ul>
-        <li>
-          The route for this page is defined inside <code>start/routes.ts</code> file
-        </li>
+    <label for="email">Email:</label>
+    <input type="email" name="email_address" required><br>
 
-        <li>
-          You can update this page by editing <code>resources/views/welcome.edge</code> file
-        </li>
+    <label for="support_message_title">Request Title:</label>
+    <input type="text" name="support_message_title" required><br>
 
-        <li>
-          If you run into problems, you can reach us on <a href="https://discord.gg/vDcEjq6?">Discord</a> or the <a href="https://forum.adonisjs.com/">Forum</a>.
-        </li>
-      </ul>
-    </div>
-  </main>
+    <label for="support_message_text">Request Message:</label>
+    <textarea name="support_message_text" required></textarea><br>
+
+    <label for="file_data">File:</label>
+    <input type="file" name="file_data"><br>
+
+    <button type="submit">Submit</button>
+  </form>
 </body>
 </html>
