@@ -20,6 +20,6 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', 'RequestsController.requestForm')
+Route.get('/', 'RequestsController.requestForm').as('create_request')
 
-Route.post('/request', 'RequestsController.userRequest')
+Route.post('/request', 'RequestsController.submitRequest').as('submit_request')
