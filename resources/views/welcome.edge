@@ -66,19 +66,35 @@
   <form action="{{route('submit_request')}}" method="POST">
     {{ csrfField() }}
     <label for="first_name">First Name:</label>
-    <input type="text" name="first_name" required><br>
+    <input type="text" name="first_name"><br>
+    @if(flashMessages.has('errors.first_name'))
+    <p> {{ flashMessages.get('errors.first_name') }} </p>
+    @end
+
 
     <label for="last_name">Last Name:</label>
-    <input type="text" name="last_name" required><br>
+    <input type="text" name="last_name"><br>
+    @if(flashMessages.has('errors.last_name'))
+    <p> {{ flashMessages.get('errors.last_name') }} </p>
+    @end
 
     <label for="email">Email:</label>
-    <input type="email" name="email" required><br>
+    <input type="email" name="email"><br>
+    @if(flashMessages.has('errors.email'))
+    <p> {{ flashMessages.get('errors.email') }} </p>
+    @end
 
     <label for="request_title">Request Title:</label>
-    <input type="text" name="request_title" required><br>
+    <input type="text" name="request_title"><br>
+    @if(flashMessages.has('errors.request_title'))
+    <p> {{ flashMessages.get('errors.request_title') }} </p>
+    @end
 
     <label for="request_message">Request Message:</label>
-    <textarea name="request_text" required></textarea><br>
+    <textarea name="request_text"></textarea><br>
+    @if(flashMessages.has('errors.request_text'))
+    <p> {{ flashMessages.get('errors.request_text') }} </p>
+    @end
 
     <label for="file_data">File:</label>
     <input type="file" name="file_data"><br>
