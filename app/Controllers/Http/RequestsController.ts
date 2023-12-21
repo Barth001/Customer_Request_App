@@ -11,25 +11,26 @@ export default class RequestsController {
       async submitRequest ({ request, response }) {
         
           const payload = await request.validate(CreateRequestValidator)
+          
 
           // Check if the user already exists
-        let user = await Database.from('users').where('email', payload.email).first()
+          let user = await Database.from('users').where('email', payload.email).first()
         
     
-        // Save user data to the database
-        if(!user){
-            await Database.table('users').insert({
-                email: payload.email,
-                full_name: payload.first_name + ' ' + payload.last_name
-            })
-        }
+          // Save user data to the database
+          if(!user){
+              await Database.table('users').insert({
+                  email: payload.email,
+                  full_name: payload.first_name + ' ' + payload.last_name
+              })
+          }
 
-        await Database.table('support_requests').insert({
-            request_title: payload.request_title,
-            request_text: payload.request_text,
-            user_email: payload.email,
-            file_data: payload.file_data
-        })
+          await Database.table('support_requests').insert({
+              request_title: payload.request_title,
+              request_text: payload.request_text,
+              user_email: payload.email,
+              file_data: payload.file_data
+          })
         
         // Attach file data if provided
     

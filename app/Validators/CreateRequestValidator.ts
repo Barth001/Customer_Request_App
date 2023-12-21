@@ -29,6 +29,7 @@ export default class CreateRequestValidator {
     email: schema.string(),
     request_title: schema.string(),
     request_text: schema.string(),
+    file_data: schema.string(),
   })
 
   /**
