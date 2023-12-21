@@ -11,11 +11,9 @@ export default class RequestsController {
       async submitRequest ({ request, response }) {
         
           const payload = await request.validate(CreateRequestValidator)
-          console.log(payload);
 
           // Check if the user already exists
         let user = await Database.from('users').where('email', payload.email).first()
-        console.log(user);
         
     
         // Save user data to the database
@@ -30,12 +28,22 @@ export default class RequestsController {
             request_title: payload.request_title,
             request_text: payload.request_text,
             user_email: payload.email,
-            file_data: payload
+            file_data: payload.file_data
         })
         
         // Attach file data if provided
     
         return response.redirect().back()
+      }
+
+      async getRequest ({params,response}) {        
+
+        const { email } = params
+
+        let user = await Database.from('support_requests').where('user_email', email)
+        
+        return response.json({user})
+
       }
 }
 
