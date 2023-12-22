@@ -20,6 +20,8 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/', async ({ view }) => {
-  return view.render('welcome')
-})
+Route.get('/', 'RequestsController.requestForm').as('create_request')
+
+Route.get('/request/:email', 'RequestsController.getRequest').as('get_request')
+
+Route.post('/request', 'RequestsController.submitRequest').as('submit_request')
